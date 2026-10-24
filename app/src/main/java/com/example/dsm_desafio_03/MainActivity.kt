@@ -12,6 +12,7 @@ import com.example.dsm_desafio_03.databinding.ActivityMainBinding
 import com.example.dsm_desafio_03.databinding.DialogEditGoalBinding
 import com.example.dsm_desafio_03.model.Book
 import com.example.dsm_desafio_03.ui.auth.LoginActivity
+import com.example.dsm_desafio_03.ui.book.BookFormActivity
 import com.example.dsm_desafio_03.ui.main.CurrentlyReadingAdapter
 import com.example.dsm_desafio_03.utils.ValidationUtils
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -251,7 +252,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openAddOrEditBook(book: Book?) {
-        showMessage("El formulario de Registro y Edición de Libros se habilitará en el Punto 3")
+        startActivity(BookFormActivity.createIntent(this, book))
     }
 
     private fun openLibraryScreen() {
