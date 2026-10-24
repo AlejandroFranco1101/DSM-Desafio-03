@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="90dp"
+    android:height="130dp"
+    android:viewportWidth="90"
+    android:viewportHeight="130">
+    <!-- Portada 4: Los pilares de la Tierra - Ken Follett -->
+    <path
+        android:fillColor="#98847D"
+        android:pathData="M8,0h74c4.4,0 8,3.6 8,8v114c0,4.4 -3.6,8 -8,8H8c-4.4,0 -8,-3.6 -8,-8V8C0,3.6 3.6,0 8,0z" />
+    <path
+        android:fillColor="#151829"
+        android:pathData="M0,0h10v130H0z" />
+    <path
+        android:fillColor="#151829"
+        android:pathData="M26,28h10v52H26zM44,20h10v60H44zM62,28h10v52H62z" />
+    <path
+        android:fillColor="#F2DDF7"
+        android:pathData="M22,80h54v5H22zM22,24h54v4H22z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M24,96h48v4H24zM30,106h36v3H30z" />
+</vector>

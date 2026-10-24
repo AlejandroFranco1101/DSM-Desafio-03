@@ -48,6 +48,10 @@
             android:name=".ui.stats.StatisticsActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".ui.suggestions.SuggestionsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

@@ -1,0 +1,25 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="90dp"
+    android:height="130dp"
+    android:viewportWidth="90"
+    android:viewportHeight="130">
+    <!-- Portada 2: El hombre en busca de sentido - Viktor Frankl -->
+    <path
+        android:fillColor="#11406A"
+        android:pathData="M8,0h74c4.4,0 8,3.6 8,8v114c0,4.4 -3.6,8 -8,8H8c-4.4,0 -8,-3.6 -8,-8V8C0,3.6 3.6,0 8,0z" />
+    <path
+        android:fillColor="#151829"
+        android:pathData="M0,0h10v130H0z" />
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M48,46m-18,0a18,18 0,1 1,36 0a18,18 0,1 1,-36 0" />
+    <path
+        android:fillColor="#C3ECFE"
+        android:pathData="M48,20L52,42L44,42Z" />
+    <path
+        android:fillColor="#426A9B"
+        android:pathData="M10,72L48,52L90,72L90,122L10,122Z" />
+    <path
+        android:fillColor="#F2DDF7"
+        android:pathData="M24,94h48v4H24zM32,104h32v3H32z" />
+</vector>

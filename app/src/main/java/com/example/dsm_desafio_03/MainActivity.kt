@@ -16,6 +16,7 @@ import com.example.dsm_desafio_03.ui.book.BookFormActivity
 import com.example.dsm_desafio_03.ui.library.LibraryActivity
 import com.example.dsm_desafio_03.ui.main.CurrentlyReadingAdapter
 import com.example.dsm_desafio_03.ui.stats.StatisticsActivity
+import com.example.dsm_desafio_03.ui.suggestions.SuggestionsActivity
 import com.example.dsm_desafio_03.utils.ValidationUtils
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -114,6 +115,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnAddBook.setOnClickListener {
             openAddOrEditBook(null)
+        }
+
+        binding.btnBookSuggestions.setOnClickListener {
+            startActivity(Intent(this, SuggestionsActivity::class.java))
         }
 
         binding.btnOpenLibrary.setOnClickListener {

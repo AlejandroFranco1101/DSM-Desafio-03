@@ -1,0 +1,25 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="90dp"
+    android:height="130dp"
+    android:viewportWidth="90"
+    android:viewportHeight="130">
+    <!-- Portada 3: El nombre del viento - Patrick Rothfuss -->
+    <path
+        android:fillColor="#426A9B"
+        android:pathData="M8,0h74c4.4,0 8,3.6 8,8v114c0,4.4 -3.6,8 -8,8H8c-4.4,0 -8,-3.6 -8,-8V8C0,3.6 3.6,0 8,0z" />
+    <path
+        android:fillColor="#151829"
+        android:pathData="M0,0h10v130H0z" />
+    <path
+        android:fillColor="#C3ECFE"
+        android:pathData="M24,42C36,28 60,28 72,42C60,56 36,56 24,42Z" />
+    <path
+        android:fillColor="#75CBD6"
+        android:pathData="M20,58C36,44 62,44 76,58C62,72 36,72 20,58Z" />
+    <path
+        android:fillColor="#F2DDF7"
+        android:pathData="M48,24m-7,0a7,7 0,1 1,14 0a7,7 0,1 1,-14 0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M24,92h48v4H24zM30,102h36v3H30z" />
+</vector>
