@@ -2,4 +2,25 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Paleta Principal Personalizada -->
+    <color name="bg_sky_gray">#ADC3D8</color>         <!-- Azul cielo grisáceo - Fondo -->
+    <color name="dark_night">#151829</color>          <!-- Azul noche casi negro - Contraste oscuro -->
+    <color name="deep_teal">#11406A</color>           <!-- Azul petróleo/teal - Profundidad -->
+    <color name="steel_blue">#426A9B</color>          <!-- Azul acero metálico - Cuerpo -->
+    <color name="accent_turquoise">#75CBD6</color>    <!-- Turquesa luminoso - Acento frío -->
+    <color name="ice_cyan">#C3ECFE</color>            <!-- Cian hielo - Brillos -->
+    <color name="pearl_pink">#F2DDF7</color>          <!-- Rosa perla pálido - Contraluz cálido -->
+    <color name="warm_taupe">#98847D</color>          <!-- Marrón topo/arena - Textura cálida -->
+
+    <!-- Variaciones de Superficie para Tarjetas de Alto Contraste -->
+    <color name="surface_card">#F4F8FC</color>
+    <color name="surface_card_elevated">#FFFFFF</color>
+    <color name="surface_input">#EBF2F8</color>
+    <color name="divider_soft">#CBD9E6</color>
+
+    <!-- Colores Semánticos -->
+    <color name="status_error">#C93B3B</color>
+    <color name="status_success">#1E825C</color>
+    <color name="star_gold">#F59E0B</color>
 </resources>

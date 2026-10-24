@@ -1,7 +1,29 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.DSMDesafio03" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- Keep consistent custom palette in dark/night mode -->
+    <style name="Base.Theme.DSMDesafio03" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/deep_teal</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/ice_cyan</item>
+        <item name="colorOnPrimaryContainer">@color/dark_night</item>
+
+        <item name="colorSecondary">@color/steel_blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/pearl_pink</item>
+        <item name="colorOnSecondaryContainer">@color/dark_night</item>
+
+        <item name="colorTertiary">@color/accent_turquoise</item>
+        <item name="colorOnTertiary">@color/dark_night</item>
+
+        <item name="android:colorBackground">@color/bg_sky_gray</item>
+        <item name="colorSurface">@color/surface_card</item>
+        <item name="colorOnSurface">@color/dark_night</item>
+        <item name="colorSurfaceVariant">@color/surface_input</item>
+        <item name="colorOnSurfaceVariant">@color/steel_blue</item>
+        <item name="colorOutline">@color/warm_taupe</item>
+        <item name="colorError">@color/status_error</item>
+
+        <item name="android:statusBarColor">@color/dark_night</item>
+        <item name="android:navigationBarColor">@color/dark_night</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>
