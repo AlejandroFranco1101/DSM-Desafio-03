@@ -15,6 +15,7 @@ import com.example.dsm_desafio_03.ui.auth.LoginActivity
 import com.example.dsm_desafio_03.ui.book.BookFormActivity
 import com.example.dsm_desafio_03.ui.library.LibraryActivity
 import com.example.dsm_desafio_03.ui.main.CurrentlyReadingAdapter
+import com.example.dsm_desafio_03.ui.stats.StatisticsActivity
 import com.example.dsm_desafio_03.utils.ValidationUtils
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -273,7 +274,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openStatsScreen() {
-        showMessage("La pantalla de Estadísticas se habilitará en el Punto 5")
+        startActivity(Intent(this, StatisticsActivity::class.java))
     }
 
     private fun navigateToLogin() {

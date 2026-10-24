@@ -44,6 +44,10 @@
             android:name=".ui.library.LibraryActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".ui.stats.StatisticsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
