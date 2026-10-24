@@ -1,144 +1,517 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_sky_gray">
+    android:background="@color/bg_sky_gray"
+    android:fillViewport="true">
 
-    <!-- Header Superior con Saludo y Botón Cerrar Sesión -->
-    <LinearLayout
-        android:id="@+id/topHeader"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_auth_header"
-        android:orientation="vertical"
-        android:paddingHorizontal="24dp"
-        android:paddingTop="40dp"
-        android:paddingBottom="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:paddingBottom="32dp">
 
+        <!-- Header Superior con Saludo y Botón Cerrar Sesión -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/topHeader"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:background="@drawable/bg_auth_header"
+            android:orientation="vertical"
+            android:paddingHorizontal="22dp"
+            android:paddingTop="38dp"
+            android:paddingBottom="52dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_pink"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="3dp"
+                        android:text="BIBLIOLARA • PANEL DE LECTURA"
+                        android:textColor="@color/dark_night"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvGreeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="¡Hola, Lector!"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvUserEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="correo@ejemplo.com"
+                        android:textColor="@color/ice_cyan"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Botón Cerrar Sesión -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLogout"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:text="Salir"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/steel_blue"
+                    app:cornerRadius="12dp"
+                    app:icon="@drawable/ic_logout"
+                    app:iconPadding="6dp"
+                    app:iconSize="18dp"
+                    app:iconTint="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Tarjeta de Meta Anual de Lectura -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAnnualGoal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="-32dp"
+            app:cardBackgroundColor="@color/surface_card_elevated"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topHeader"
+            app:strokeColor="@color/ice_cyan"
+            app:strokeWidth="1.5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Encabezado de Meta Anual + Botón Definir/Editar Meta -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_icon_circle"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="Meta anual"
+                            android:src="@drawable/ic_trophy" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvGoalTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Meta Anual 2026"
+                            android:textColor="@color/dark_night"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvGoalSubtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Define tu objetivo de lectura para este año"
+                            android:textColor="@color/warm_taupe"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEditGoal"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:paddingHorizontal="12dp"
+                        android:text="Definir meta"
+                        android:textAllCaps="false"
+                        android:textColor="@color/deep_teal"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/ice_cyan"
+                        app:cornerRadius="10dp"
+                        app:icon="@drawable/ic_edit"
+                        app:iconPadding="4dp"
+                        app:iconSize="15dp"
+                        app:iconTint="@color/deep_teal" />
+                </LinearLayout>
+
+                <!-- 3 Indicadores: Meta, Terminados en el Año, Faltan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <!-- Meta del Año -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_metric_box"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingVertical="12dp"
+                        android:paddingHorizontal="6dp">
+
+                        <TextView
+                            android:id="@+id/tvGoalTargetValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/deep_teal"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="Meta Anual"
+                            android:textColor="@color/steel_blue"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Terminados en el Año -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="3dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_metric_box"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingVertical="12dp"
+                        android:paddingHorizontal="6dp">
+
+                        <TextView
+                            android:id="@+id/tvGoalFinishedValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/dark_night"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="Terminados"
+                            android:textColor="@color/steel_blue"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Faltan para cumplirla -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_metric_box"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingVertical="12dp"
+                        android:paddingHorizontal="6dp">
+
+                        <TextView
+                            android:id="@+id/tvGoalRemainingValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:textColor="@color/warm_taupe"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="Faltan"
+                            android:textColor="@color/steel_blue"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Barra de progreso de la meta anual -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvGoalStatusMessage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Aún no has definido tu meta anual"
+                        android:textColor="@color/steel_blue"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvGoalPercent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_pink"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="2dp"
+                        android:text="0%"
+                        android:textColor="@color/dark_night"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progressAnnualGoal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:max="100"
+                    android:progress="0"
+                    app:indicatorColor="@color/accent_turquoise"
+                    app:trackColor="@color/ice_cyan"
+                    app:trackCornerRadius="6dp"
+                    app:trackThickness="9dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botones de Navegación Principal (Agregar Libro, Biblioteca, Estadísticas) -->
+        <LinearLayout
+            android:id="@+id/layoutNavigationActions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardAnnualGoal">
+
+            <!-- Botón Principal: Agregar un Libro -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddBook"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Agregar un Libro"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/deep_teal"
+                app:cornerRadius="14dp"
+                app:elevation="4dp"
+                app:icon="@drawable/ic_add"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:iconTint="@color/white" />
+
+            <!-- Fila Secundaria: Biblioteca Completa y Estadísticas -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnOpenLibrary"
+                    style="@style/Widget.Material3.Button.ElevatedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:text="Biblioteca"
+                    android:textAllCaps="false"
+                    android:textColor="@color/dark_night"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/surface_card_elevated"
+                    app:cornerRadius="14dp"
+                    app:icon="@drawable/ic_library"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp"
+                    app:iconTint="@color/deep_teal"
+                    app:strokeColor="@color/steel_blue"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnOpenStats"
+                    style="@style/Widget.Material3.Button.ElevatedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:text="Estadísticas"
+                    android:textAllCaps="false"
+                    android:textColor="@color/dark_night"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/surface_card_elevated"
+                    app:cornerRadius="14dp"
+                    app:icon="@drawable/ic_stats"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp"
+                    app:iconTint="@color/deep_teal"
+                    app:strokeColor="@color/steel_blue"
+                    app:strokeWidth="1dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Encabezado Sección: Leyendo Actualmente -->
+        <LinearLayout
+            android:id="@+id/headerCurrentlyReading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="22dp"
+            android:layout_marginTop="22dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutNavigationActions">
+
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_badge_pink"
-                    android:paddingHorizontal="12dp"
-                    android:paddingVertical="3dp"
-                    android:text="SESIÓN ACTIVA"
-                    android:textColor="@color/dark_night"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvGreeting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="¡Hola, Lector!"
-                    android:textColor="@color/white"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvUserEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="correo@ejemplo.com"
-                    android:textColor="@color/ice_cyan"
-                    android:textSize="13sp" />
-            </LinearLayout>
-
-            <!-- Botón Cerrar Sesión -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLogout"
-                style="@style/Widget.Material3.Button.TonalButton"
-                android:layout_width="wrap_content"
-                android:layout_height="42dp"
-                android:text="Salir"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="13sp"
-                android:textStyle="bold"
-                app:backgroundTint="@color/steel_blue"
-                app:cornerRadius="12dp"
-                app:icon="@drawable/ic_logout"
-                app:iconPadding="6dp"
-                app:iconSize="18dp"
-                app:iconTint="@color/white" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Tarjeta de Estado de Autenticación (Lista para expandirse en el Punto 2) -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardAuthStatus"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="22dp"
-        android:layout_marginTop="24dp"
-        app:cardBackgroundColor="@color/surface_card_elevated"
-        app:cardCornerRadius="22dp"
-        app:cardElevation="6dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topHeader"
-        app:strokeColor="@color/ice_cyan"
-        app:strokeWidth="1.5dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="24dp">
-
-            <FrameLayout
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:background="@drawable/bg_icon_circle"
-                android:padding="14dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="Sesión iniciada"
-                    android:src="@drawable/ic_book_logo" />
-            </FrameLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:text="Autenticación Completada"
+                android:text="Leyendo actualmente"
                 android:textColor="@color/dark_night"
-                android:textSize="19sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvSessionDetails"
+                android:id="@+id/tvReadingCountBadge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:gravity="center"
-                android:text="Tu sesión de Firebase permanece activa incluso si cierras la aplicación."
-                android:textColor="@color/steel_blue"
-                android:textSize="14sp" />
-
+                android:background="@drawable/bg_chip_genre"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:text="0 activos"
+                android:textColor="@color/deep_teal"
+                android:textSize="12sp"
+                android:textStyle="bold" />
         </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Lista de libros leyendo actualmente -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCurrentlyReading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="12dp"
+            android:nestedScrollingEnabled="false"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerCurrentlyReading" />
+
+        <!-- Estado vacío cuando no hay libros en estado "Leyendo" -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardEmptyReading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerCurrentlyReading"
+            app:strokeColor="@color/divider_soft"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <FrameLayout
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:background="@drawable/bg_icon_circle"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="Sin lecturas activas"
+                        android:src="@drawable/ic_book_logo" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="No tienes lecturas en curso"
+                    android:textColor="@color/dark_night"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="Agrega un libro con estado &quot;Leyendo&quot; para seguir tu porcentaje de avance aquí."
+                    android:textColor="@color/warm_taupe"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

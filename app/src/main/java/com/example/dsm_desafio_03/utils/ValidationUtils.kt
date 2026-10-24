@@ -51,4 +51,17 @@ object ValidationUtils {
             confirmPasswordError = confirmErr
         )
     }
+
+    fun validateAnnualGoal(input: String): String? {
+        val trimmed = input.trim()
+        if (trimmed.isEmpty()) {
+            return "Debes ingresar una cantidad de libros para tu meta anual"
+        }
+        val number = trimmed.toIntOrNull()
+            ?: return "La meta anual debe ser un número entero válido"
+        if (number <= 0) {
+            return "La meta anual debe ser un número entero mayor que cero"
+        }
+        return null
+    }
 }
