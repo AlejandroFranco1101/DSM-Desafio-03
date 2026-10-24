@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
 
         repository = ReadingRepository()
 
-        ensureInitialBooksInFirebase()
         setupUserHeader()
         setupRecyclerView()
         setupListeners()
@@ -70,17 +69,6 @@ class MainActivity : AppCompatActivity() {
         val year = repository.getCurrentYear()
         repository.removeGoalListener(year, goalListener)
         repository.removeBooksListener(booksListener)
-    }
-
-    private fun ensureInitialBooksInFirebase() {
-        val uid = auth.currentUser?.uid ?: return
-        val prefs = getSharedPreferences("bibliolara_prefs", MODE_PRIVATE)
-        val key = "initial_books_inserted_$uid"
-        if (!prefs.getBoolean(key, false)) {
-            repository.seedRealBooksToFirebaseIfNeeded {
-                prefs.edit().putBoolean(key, true).apply()
-            }
-        }
     }
 
     private fun setupUserHeader() {

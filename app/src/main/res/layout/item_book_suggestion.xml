@@ -36,8 +36,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="Portada del libro"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/cover_book_1" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cover_real_1" />
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Metadatos del Libro -->
