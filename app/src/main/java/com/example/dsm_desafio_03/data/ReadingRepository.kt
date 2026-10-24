@@ -131,4 +131,90 @@ class ReadingRepository {
                 }
             }
     }
+
+    fun seedRealBooksToFirebaseIfNeeded(onSeeded: () -> Unit = {}) {
+        val booksRef = userRootRef()?.child("books") ?: return
+        val currentYear = getCurrentYear()
+
+        booksRef.get().addOnSuccessListener { snapshot ->
+            val existingTitles = snapshot.children.mapNotNull {
+                it.getValue(Book::class.java)?.title?.lowercase()?.trim()
+            }.toSet()
+
+            val calFirst = Calendar.getInstance().apply {
+                set(currentYear, Calendar.MARCH, 12, 10, 30, 0)
+            }
+            val calSecond = Calendar.getInstance().apply {
+                set(currentYear, Calendar.JUNE, 18, 16, 45, 0)
+            }
+
+            val sampleBooks = listOf(
+                Book(
+                    title = "Cien años de soledad",
+                    author = "Gabriel García Márquez",
+                    genre = Book.GENRE_NOVEL,
+                    totalPages = 496,
+                    readPages = 496,
+                    status = Book.STATUS_FINISHED,
+                    rating = 5,
+                    finishedAt = calFirst.timeInMillis,
+                    finishedDateFormatted = "12/03/$currentYear",
+                    finishedYear = currentYear,
+                    createdAt = calFirst.timeInMillis - 86_400_000L
+                ),
+                Book(
+                    title = "Proyecto Hail Mary",
+                    author = "Andy Weir",
+                    genre = Book.GENRE_SCIFI,
+                    totalPages = 480,
+                    readPages = 480,
+                    status = Book.STATUS_FINISHED,
+                    rating = 5,
+                    finishedAt = calSecond.timeInMillis,
+                    finishedDateFormatted = "18/06/$currentYear",
+                    finishedYear = currentYear,
+                    createdAt = calSecond.timeInMillis - 86_400_000L
+                ),
+                Book(
+                    title = "Hábitos Atómicos",
+                    author = "James Clear",
+                    genre = Book.GENRE_PERSONAL_DEV,
+                    totalPages = 320,
+                    readPages = 208,
+                    status = Book.STATUS_READING,
+                    rating = 0,
+                    finishedAt = null,
+                    finishedDateFormatted = "",
+                    finishedYear = 0,
+                    createdAt = System.currentTimeMillis() - 7_200_000L
+                ),
+                Book(
+                    title = "Sapiens: De animales a dioses",
+                    author = "Yuval Noah Harari",
+                    genre = Book.GENRE_HISTORY,
+                    totalPages = 512,
+                    readPages = 0,
+                    status = Book.STATUS_TO_READ,
+                    rating = 0,
+                    finishedAt = null,
+                    finishedDateFormatted = "",
+                    finishedYear = 0,
+                    createdAt = System.currentTimeMillis() - 3_600_000L
+                )
+            )
+
+            var addedAny = false
+            for (book in sampleBooks) {
+                if (book.title.lowercase().trim() !in existingTitles) {
+                    val newKey = booksRef.push().key ?: continue
+                    booksRef.child(newKey).setValue(book.copy(id = newKey))
+                    addedAny = true
+                }
+            }
+
+            if (addedAny) {
+                onSeeded()
+            }
+        }
+    }
 }
